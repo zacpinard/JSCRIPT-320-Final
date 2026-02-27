@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    "Washington's Climate Commitment Visualized - THIS is the MAIN branch"
+    "Washington's Climate Commitment Visualized - THIS is the development branch"
   )
 }
 
