@@ -24,7 +24,7 @@ function App() {
 
       </div>
       <div>
-        {/* <PolluterProfile /> */}
+        <PolluterProfile />
       </div>
     </div>
   )
