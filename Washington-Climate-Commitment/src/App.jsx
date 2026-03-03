@@ -12,12 +12,19 @@ function App() {
 
   return (
     <div>
+      {/* <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/:id" element={<Polluter />}></Route>
+      </Routes> */}
       <div className='bubble-chart'>
         <h1>Washington's Climate Commitment Visualized</h1>
       </div>
       <div className='polluter-map'>
         <CreateMap />
 
+      </div>
+      <div>
+        {/* <PolluterProfile /> */}
       </div>
     </div>
   )
