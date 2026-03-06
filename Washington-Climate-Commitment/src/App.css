@@ -5,6 +5,53 @@
   text-align: center;
 }
 
+.whole-thing {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: orange;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 30px;
+  align-items: center 
+
+}
+
+.bubble-chart-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  width: 45%;
+  Height: 500px;
+  align-items: center 
+
+
+}
+
+.year-selector {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: red;
+  display: flex;
+  justify-content: space-evenly;
+  width: 65%
+
+}
+
+.polluter-map-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: yellow;
+  width: 50%
+}
+
+
+
 .leaflet-container {
   height: 400px; /* Or any other desired height */
   width: 100%;

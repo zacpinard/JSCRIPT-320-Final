@@ -68,7 +68,7 @@ import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
 export default function PolluterProfiles() {
   const [polluters, setPolluters] = useState('placeholder')
   //const [isLoading, setIsLoading] = useState(true)
-  console.log('polluters:', polluters)
+  //console.log('polluters:', polluters)
 
   
   useEffect(() => {
@@ -96,10 +96,10 @@ export default function PolluterProfiles() {
       })
     })
     setPolluters(newPolluters)
-    console.log('newPolluters:', newPolluters)
+    //onsole.log('newPolluters:', newPolluters)
     // console.log('polluters:', polluters)
    
-  }, [polluters])
+  }, [])
   
   
 

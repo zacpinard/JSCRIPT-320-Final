@@ -38,7 +38,7 @@ export default function PolluterPage() {
   return (
     <div>
       <h1>Polluter: {id}</h1>
-      <p>info: {polluter.map()}</p>
+      {/* <p>info: {polluter.map()}</p> */}
 
 
     </div>
