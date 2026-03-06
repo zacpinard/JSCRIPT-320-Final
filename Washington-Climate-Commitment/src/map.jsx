@@ -3,11 +3,10 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 import { TiledMapLayer } from 'esri-leaflet';
-import PolluterProfiles from './polluterProfiles';
+//import PolluterProfiles from './PolluterProfiles';
 import { auth, db } from '../db'
 
 export default function CreateMap() {
-  
   
   const position = [47, -120]; // Default coordinates (latitude, longitude)
   return (

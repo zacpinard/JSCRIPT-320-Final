@@ -1,6 +1,6 @@
 import './App.css'
 import CreateMap from './map'
-import PolluterProfiles from './polluterProfiles'
+import PolluterProfiles from './PolluterProfiles'
 import { Link } from 'react-router-dom'
 
 export function Home() {

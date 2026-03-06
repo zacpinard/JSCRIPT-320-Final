@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase/firestore";
 import { auth, db } from '../db'
+import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
+
 
 // export default function PolluterProfiles() {
 //   const [polluters, setPolluters] = useState()
@@ -55,9 +57,19 @@ import { auth, db } from '../db'
 //   )
 // }
 
+
+
+
+
+
+
+
+
 export default function PolluterProfiles() {
-  const [polluters, setPolluters] = useState()
+  const [polluters, setPolluters] = useState('placeholder')
   //const [isLoading, setIsLoading] = useState(true)
+  console.log('polluters:', polluters)
+
   
   useEffect(() => {
     // const getData = async () => {
@@ -70,12 +82,13 @@ export default function PolluterProfiles() {
     // getData()
 
     const pollutersQuery = query(collection(db, 'polluters'))
+    //console.log("pollutersQuery: ", pollutersQuery)
 
     const newPolluters = []
     const unsub = onSnapshot(pollutersQuery, (snapshot) => {
       //console.log(snapshot.docs)
       snapshot.docs.forEach(doc => {
-        //console.log("doc.data(): ", doc.data())
+        // console.log("doc.data(): ", doc.data())
         newPolluters.push({
             data: doc.data(),
             id: doc.id
@@ -84,8 +97,9 @@ export default function PolluterProfiles() {
     })
     setPolluters(newPolluters)
     console.log('newPolluters:', newPolluters)
+    // console.log('polluters:', polluters)
    
-  }, [])
+  }, [polluters])
   
   
 
@@ -93,7 +107,10 @@ export default function PolluterProfiles() {
   
   return(
     <div>
-      <h2> Polluter Profiles:  </h2>
+      {/* <h2> Polluter Profiles: {polluters.map((polluters) => (
+          <div key={polluters.id}> this is a div </div>
+        ))} </h2> */}
+      {/* <h2> Polluter Profiles: {polluters.id} </h2> */}
       {/* {polluters.map((polluter) => {
         return (<div key={polluter.id}>
             <p>{polluter.data}</p>
