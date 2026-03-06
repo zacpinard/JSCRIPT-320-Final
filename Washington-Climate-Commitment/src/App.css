@@ -18,6 +18,10 @@
 
 }
 
+.my-button {
+  font-size: 10px;
+}
+
 .bubble-chart-container {
   outline-style: solid;
   outline-width: 2px;
@@ -30,7 +34,16 @@
   Height: 500px;
   align-items: center 
 
+}
 
+.allowance-breakdown-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: green;
+  width: 100%;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .year-selector {
@@ -38,8 +51,11 @@
   outline-width: 2px;
   outline-color: red;
   display: flex;
+  padding: 10px;
+  gap: 10px;
+  width: 65%;
   justify-content: space-evenly;
-  width: 65%
+  align-items: center 
 
 }
 

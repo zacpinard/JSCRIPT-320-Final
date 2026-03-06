@@ -12,11 +12,15 @@ export default function YearContainer () {
       <div>
         Insert Bubble Chart Image Here
       </div>
+      <div className="allowance-breakdown-container">
+        <p>Allowances Sold: ___</p>
+        <p>EITE No Cost Allowances Given: ___</p>
+      </div>
       <h2>Total Emissions: ______ million metric tons</h2>
       <div className="year-selector">
-        <button> -- last year </button>
+        <button className="my-button"> -- last year </button>
         <h2>Year: 20xx</h2>
-        <button> next year -- </button>
+        <button className="my-button"> next year -- </button>
       </div>
       
 
