@@ -2,6 +2,7 @@ import './App.css'
 import CreateMap from './map'
 import PolluterProfiles from './PolluterProfiles'
 import { Link } from 'react-router-dom'
+import YearProfile from './yearProfile'
 
 export function Home() {
 
@@ -10,6 +11,7 @@ export function Home() {
       <div className='bubble-chart'>
         <h1>Washington's Climate Commitment Visualized</h1>
       </div>
+      <YearProfile />
       <div className='polluter-map'>
         <CreateMap />
 
