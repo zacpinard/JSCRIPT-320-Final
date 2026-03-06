@@ -13,11 +13,14 @@ export default function PolluterPage() {
   useEffect(() => {
       const getData = async () => {
 
-          const docRef = doc( db, "polluters", id);
+          const docRef = doc(db, "polluters", id);
+          console.log('id: ', id)
           const docSnap = await getDoc(docRef);
 
           if (docSnap.exists()) {
               console.log("Document data:", docSnap.data());
+              console.log("docSnap.data().name: ", docSnap.data().name)
+              //const polluterName = docSnap.data().name
               setPolluter(docSnap.data())
 
           } else {
@@ -33,12 +36,12 @@ export default function PolluterPage() {
 
 
   return (
-      <div>
-          <h1>Polluter: {id}</h1>
-          <p>{polluter}</p>
+    <div>
+      <h1>Polluter: {id}</h1>
+      <p></p>
 
 
-      </div>
+    </div>
   );
 }
 

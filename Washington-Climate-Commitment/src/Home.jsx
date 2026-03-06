@@ -1,6 +1,7 @@
 import './App.css'
 import CreateMap from './map'
 import PolluterProfiles from './polluterProfiles'
+import { Link } from 'react-router-dom'
 
 export function Home() {
 
@@ -15,6 +16,7 @@ export function Home() {
       </div>
       <div>
         <PolluterProfiles />
+        <Link to='/polluters/5baaw8XsL9cMsoKEtSIp'>Polluter Link</Link>
       </div>
     </div>
     
