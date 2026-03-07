@@ -6,57 +6,65 @@ import image2023 from "./bubble-charts/2023.drawio.png"
 import image2024 from "./bubble-charts/2024.drawio.png"
 import image2025 from "./bubble-charts/2025.drawio.png"
 
-export default function SelectYear() {
-    const [targetYear, setTargetYear] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
-    const [hasError, setHasError] = useState(false)
-    const { id } = useParams();
-    //const navigate = useNavigate()
+const yearImages = {
+  2023: image2023,
+  2024: image2024,
+  2025: image2025,
+}
 
-    useEffect(() => {
-        const getOneYearData = async () => {
+export default function SelectYear({ id }) {
+  const [targetYear, setTargetYear] = useState('jkIdDVDlti1Aj7B7bIJU')
+  const [isLoading, setIsLoading] = useState(false)
+  const [hasError, setHasError] = useState(false)
+  // const { id } = useParams();
+  //const navigate = useNavigate()
 
-            const docRef = doc(db, "years", id);
-            const docSnap = await getDoc(docRef);
+  console.log('SelectYear received ID: ', id)
 
-            if (docSnap.exists()) {
-                console.log("Document data:", docSnap.data());
-                setTargetYear(docSnap.data())
-                setIsLoading(false)
+  useEffect(() => {
+    const getOneYearData = async () => {
 
+      const docRef = doc(db, "years", id);
+      const docSnap = await getDoc(docRef);
 
-            } else {
-                // docSnap.data() will be undefined in this case
-                setHasError(true)
-                setIsLoading(false)
-                console.log("No such document!");
-            }
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        setTargetYear(docSnap.data())
+        setIsLoading(false)
 
 
-        }
-        getOneYearData()
+      } else {
+        // docSnap.data() will be undefined in this case
+        setHasError(true)
+        setIsLoading(false)
+        console.log("No such document!");
+      }
 
-    }, [id])
 
-    if (isLoading) {
-        return <h1>Loading...</h1>
     }
+    getOneYearData()
 
-    if (hasError) {
-        return <h1>Has error...</h1>
-    }
+  }, [id])
+
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
+
+  if (hasError) {
+    return <h1>Has error...</h1>
+  }
 
 
   return (
     
       <div className='image-and-breakdown-container'>
-        <img className="my-image" src={image2023} alt="2023 Bubble Chart" />
+        <img className="my-image" src={yearImages[targetYear.year]} alt= {`${targetYear.year} Bubble Chart`} />
         <div className="allowance-breakdown-container">
-          <p>Year: {id}</p>
-          <p>Allowances Sold: ___</p>
-          <p>EITE No Cost Allowances Given: ___</p>
+          <p>Year: {targetYear.year}</p>
+          <p>Allowances Sold: {targetYear.allowances_sold}</p>
+          <p>EITE No Cost Allowances Given: {targetYear.eite_allocation}</p>
         </div>
-        <h3>Total Emissions: ______ million metric tons</h3>
+        <h3>Total Emissions: {targetYear.allowances_sold + targetYear.eite_allocation} metric tons</h3>
       </div>
   );
 }

@@ -57,8 +57,6 @@ export default function PolluterPage() {
       <h2>Type of Market Participant: {polluter.status}</h2>
       <h2>Location: {polluter.location}</h2>
       <Link to={`/`}>Home</Link>
-
-
     </div>
   );
 }

@@ -9,10 +9,10 @@ import SelectYear from "./SelectYear";
 
 export default function YearContainer () {
   const [years, setYears] = useState([])
-  const [year, setYear] = useState('jkIdDVDlti1Aj7B7bIJU')
+  const [selectedYearID, setSelectedYearID] = useState('jkIdDVDlti1Aj7B7bIJU')
   // const [isLoading, setIsLoading] = useState(true)
   // const [hasError, setHasError] = useState(false)
-  const { id } = useParams();
+  // const { id } = useParams();
   //console.log('polluters:', polluters)
   let displayYear = 2023
 
@@ -31,7 +31,7 @@ export default function YearContainer () {
         console.log(doc.id, " => ", doc.data());
       });
 
-      setYears(newYears)
+      setYears(newYears.sort((a, b) => a.data.year - b.data.year))
       //setIsLoading(false)
     }
 
@@ -87,7 +87,7 @@ export default function YearContainer () {
 
   return (
     <div className='bubble-chart-container'>
-      <SelectYear />
+      <SelectYear id={selectedYearID}/>
       <div className="year-selector">
         {/* <button className="my-button"> -- last year </button>
         <h2>Year: 20xx</h2>
@@ -95,14 +95,15 @@ export default function YearContainer () {
         <div className='year-cards'>
           {years.map((year) => {
             return (
-              <button key={year.id}>{year.data.year}</button>
+              <button key={year.id} onClick={() => {
+                console.log('clicked year id:', year.id)
+                setSelectedYearID(year.id)}}>
+                {year.data.year}
+              </button>
             )
           })}
         </div>
       </div>
-
     </div>
-      
-      
   )
 }

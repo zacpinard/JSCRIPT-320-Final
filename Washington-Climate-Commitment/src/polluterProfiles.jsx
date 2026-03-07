@@ -89,7 +89,7 @@ export default function PolluterProfiles() {
   
   return(
     <div className="polluter-card-container">
-      <p>Polluters:</p>
+      <p>Washington's Biggest Polluters:</p>
       <div className='polluter-cards'>
         {polluters.map((polluter) => {
           return (
