@@ -91,6 +91,13 @@
   outline-style: solid;
   outline-width: 2px;
   outline-color: cyan;
+  padding: 10px;
+}
+
+.polluter-cards {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: magenta;
 }
 
 .leaflet-container {

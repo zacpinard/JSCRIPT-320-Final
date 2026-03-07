@@ -60,30 +60,44 @@ import './App.css'
 //______________________________________________________________________________________________________________________________________________________________
 
 export default function PolluterProfiles() {
-  const [polluters, setPolluters] = useState('placeholder')
+  const [polluters, setPolluters] = useState([])
   //const [isLoading, setIsLoading] = useState(true)
   //console.log('polluters:', polluters)
 
   
   useEffect(() => {
     const getData = async () => {
+      const newPolluters = []
       const querySnapshot = await getDocs(collection(db, "polluters"));
       querySnapshot.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data().name);
+        //console.log(doc.id, " => ", doc.data().name);
+        newPolluters.push({
+          data: doc.data(),
+          id: doc.id
       })
+      })
+      setPolluters(newPolluters)
     }
 
     getData()
    
   }, [])
   
-  
+  console.log('polluters: ', polluters)
 
 
   
   return(
     <div className="polluter-card-container">
-      [ Polluter Card Here ] [ Polluter Card Here ] [ Polluter Card Here ]
+      <h3>Polluter Cards</h3>
+      <div className='polluter-cards'>
+        {polluters.map((polluter) => {
+        return (
+          <div key={polluter.id}>{polluter.data.name}</div>
+        )
+      })}
+      </div>
+      
       {/* <h2> Polluter Profiles: {polluters.map((polluters) => (
           <div key={polluters.id}> this is a div </div>
         ))} </h2> */}
