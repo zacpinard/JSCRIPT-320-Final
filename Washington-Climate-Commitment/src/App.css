@@ -6,6 +6,7 @@
 }
 
 .whole-thing {
+  background-color: #121212;
   outline-style: solid;
   outline-width: 2px;
   outline-color: orange;
@@ -29,7 +30,6 @@
 }
 
 .bubble-chart-container {
-  background-color: black;
   outline-style: solid;
   outline-width: 2px;
   outline-color: blue;
