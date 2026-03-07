@@ -73,7 +73,7 @@ export default function PolluterProfiles() {
         //console.log(doc.id, " => ", doc.data().name);
         newPolluters.push({
           data: doc.data(),
-          id: doc.id
+          id: doc.id,
       })
       })
       setPolluters(newPolluters)
@@ -92,9 +92,11 @@ export default function PolluterProfiles() {
       <p>Polluters:</p>
       <div className='polluter-cards'>
         {polluters.map((polluter) => {
-        return (
-          <button key={polluter.id} className={polluter.data.button}>{polluter.data.name}</button>
-        )
+          return (
+            <div key={polluter.id} className={polluter.data.button}>
+              <Link to={`/polluters/${polluter.id}`}>{polluter.data.name}</Link>
+            </div>
+          )
       })}
       </div>
       

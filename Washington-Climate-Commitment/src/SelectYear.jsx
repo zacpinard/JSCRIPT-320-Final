@@ -8,8 +8,8 @@ import image2025 from "./bubble-charts/2025.drawio.png"
 
 export default function SelectYear() {
     const [targetYear, setTargetYear] = useState(null)
-    // const [isLoading, setIsLoading] = useState(true)
-    // const [hasError, setHasError] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [hasError, setHasError] = useState(false)
     const { id } = useParams();
     //const navigate = useNavigate()
 
@@ -31,18 +31,20 @@ export default function SelectYear() {
                 setIsLoading(false)
                 console.log("No such document!");
             }
+
+
         }
         getOneYearData()
 
     }, [id])
 
-    // if (isLoading) {
-    //     return <h1>Loading...</h1>
-    // }
+    if (isLoading) {
+        return <h1>Loading...</h1>
+    }
 
-    // if (hasError) {
-    //     return <h1>Has error...</h1>
-    // }
+    if (hasError) {
+        return <h1>Has error...</h1>
+    }
 
 
   return (
@@ -50,6 +52,7 @@ export default function SelectYear() {
       <div className='image-and-breakdown-container'>
         <img className="my-image" src={image2023} alt="2023 Bubble Chart" />
         <div className="allowance-breakdown-container">
+          <p>Year: {id}</p>
           <p>Allowances Sold: ___</p>
           <p>EITE No Cost Allowances Given: ___</p>
         </div>
