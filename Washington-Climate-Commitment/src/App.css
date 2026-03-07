@@ -91,7 +91,10 @@
   outline-style: solid;
   outline-width: 2px;
   outline-color: cyan;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
+  align-items:
 }
 
 .polluter-cards {

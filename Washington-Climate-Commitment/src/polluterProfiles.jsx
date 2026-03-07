@@ -89,7 +89,7 @@ export default function PolluterProfiles() {
   
   return(
     <div className="polluter-card-container">
-      <h3>Polluter Cards:</h3>
+      <p>Polluters:</p>
       <div className='polluter-cards'>
         {polluters.map((polluter) => {
         return (
