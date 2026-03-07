@@ -83,7 +83,7 @@ export default function PolluterProfiles() {
    
   }, [])
   
-  console.log('polluters: ', polluters)
+  // console.log('polluters: ', polluters)
 
 
   

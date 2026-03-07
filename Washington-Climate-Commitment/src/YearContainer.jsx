@@ -3,31 +3,106 @@ import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase
 import { auth, db } from '../db'
 import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
 import './App.css'
-import image2023 from "./bubble-charts/2023.drawio.png"
-import image2024 from "./bubble-charts/2024.drawio.png"
-import image2025 from "./bubble-charts/2025.drawio.png"
+import SelectYear from "./SelectYear";
+
 
 
 export default function YearContainer () {
+  const [years, setYears] = useState([])
+  const [year, setYear] = useState('jkIdDVDlti1Aj7B7bIJU')
+  // const [isLoading, setIsLoading] = useState(true)
+  // const [hasError, setHasError] = useState(false)
+  const { id } = useParams();
+  //console.log('polluters:', polluters)
+  let displayYear = 2023
+
+  useEffect(() => {
+
+    const getAllYearsData = async () => {
+      const newYears = []
+      const querySnapshot = await getDocs(collection(db, "years"));
+      querySnapshot.forEach((doc) => {
+        // console.log(doc.data)
+        newYears.push({
+          data: doc.data(),
+          id: doc.id
+        })
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+      });
+
+      setYears(newYears)
+      //setIsLoading(false)
+    }
+
+    getAllYearsData()
+  }, [])
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const newYears = []
+  //     const querySnapshot = await getDocs(collection(db, "years"));
+  //     querySnapshot.forEach((doc) => {
+  //       console.log(doc.id, " => ", doc.data().year);
+  //       newYears.push({
+  //         data: doc.data(),
+  //         id: doc.id
+  //       })
+  //     })
+  //     setYears(newYears)
+  //   }
+
+  //   getData()
+
+  // }, [])
+
+
+  // useEffect(() => {
+  //   const getYearData = async () => {
+  //     const docRef = doc(db, "years", id);
+  //     const docSnap = await getDoc(docRef);
+
+  //     if (docSnap.exists()) {
+  //       console.log("Document data:", docSnap.data());
+  //       setYear(docSnap.data())
+  //       setIsLoading(false)
+
+
+  //     } else {
+  //       // docSnap.data() will be undefined in this case
+  //       setHasError(true)
+  //       setIsLoading(false)
+  //       console.log("We don't have that year");
+  //     }
+
+  //     getYearData()
+
+  //   }}, [id])
+
+    // if (isLoading) {
+    //     return <h1>Loading....</h1>
+    // }
+
+  //console.log('year: ', year)
 
   return (
     <div className='bubble-chart-container'>
-      <div className='image-and-breakdown-container'>
-        <img className="my-image" src={image2023} alt="2023 Bubble Chart" />
-        <div className="allowance-breakdown-container">
-          <p>Allowances Sold: ___</p>
-          <p>EITE No Cost Allowances Given: ___</p>
+      <SelectYear />
+      <div className="year-selector">
+        {/* <button className="my-button"> -- last year </button>
+        <h2>Year: 20xx</h2>
+        <button className="my-button"> next year -- </button> */}
+        <div className='year-cards'>
+          {years.map((year) => {
+            return (
+              <button key={year.id}>{year.data.year}</button>
+            )
+          })}
         </div>
       </div>
-      <h3>Total Emissions: ______ million metric tons</h3>
-      <div className="year-selector">
-        <button className="my-button"> -- last year </button>
-        <h2>Year: 20xx</h2>
-        <button className="my-button"> next year -- </button>
-      </div>
-      
-
 
     </div>
+      
+      
   )
 }
