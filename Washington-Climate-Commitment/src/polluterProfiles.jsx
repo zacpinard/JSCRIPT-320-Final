@@ -94,7 +94,7 @@ export default function PolluterProfiles() {
         {polluters.map((polluter) => {
           return (
             <div key={polluter.id} className={polluter.data.button}>
-              <Link to={`/polluters/${polluter.id}`}>{polluter.data.name}</Link>
+              <Link to={`/polluters/${polluter.id}`} style={{ color: 'white'}}>{polluter.data.name}</Link>
             </div>
           )
       })}

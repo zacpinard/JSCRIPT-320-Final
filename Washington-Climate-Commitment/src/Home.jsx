@@ -14,9 +14,7 @@ export function Home() {
         <div className='polluter-map-container'>
           <PolluterProfiles />
           <CreateMap />
-          <Link to='/polluters/5baaw8XsL9cMsoKEtSIp'>Polluter Link</Link>
         </div>
-        
       </div>
       
     </div>
