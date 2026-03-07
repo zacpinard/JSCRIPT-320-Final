@@ -14,12 +14,18 @@
   flex-wrap: wrap;
   padding: 20px;
   gap: 30px;
-  align-items: center 
+  align-items: center;
+  width: 100%;
 
 }
 
 .my-button {
   font-size: 10px;
+}
+
+.my-image {
+  width: 80%;
+  height: 100%;
 }
 
 .bubble-chart-container {
@@ -28,22 +34,32 @@
   outline-color: blue;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   padding: 10px;
   width: 45%;
-  Height: 500px;
   align-items: center 
 
+}
+
+.image-and-breakdown-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  align-items: center 
 }
 
 .allowance-breakdown-container {
   outline-style: solid;
   outline-width: 2px;
   outline-color: green;
-  width: 100%;
+  width: 90%;
   font-size: 12px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .year-selector {
@@ -51,7 +67,6 @@
   outline-width: 2px;
   outline-color: red;
   display: flex;
-  padding: 10px;
   gap: 10px;
   width: 65%;
   justify-content: space-evenly;
