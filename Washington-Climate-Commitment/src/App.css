@@ -79,7 +79,7 @@
   outline-style: solid;
   outline-width: 2px;
   outline-color: yellow;
-  width: 48%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -98,6 +98,28 @@
   outline-style: solid;
   outline-width: 2px;
   outline-color: magenta;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+  gap: 10px;
+  row-gap: 10px;
+}
+
+.eite {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #d28f70;
+  color: #d28f70;
+  font-size: 12px;
+}
+
+.covered {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #718769;
+  color: #718769;
+  font-size: 12px;
 }
 
 .leaflet-container {
