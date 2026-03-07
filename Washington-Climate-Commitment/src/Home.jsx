@@ -12,8 +12,8 @@ export function Home() {
       <div className='whole-thing'>
         <YearContainer />
         <div className='polluter-map-container'>
-          <CreateMap />
           <PolluterProfiles />
+          <CreateMap />
           <Link to='/polluters/5baaw8XsL9cMsoKEtSIp'>Polluter Link</Link>
         </div>
         

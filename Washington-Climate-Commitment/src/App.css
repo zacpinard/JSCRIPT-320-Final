@@ -29,6 +29,7 @@
 }
 
 .bubble-chart-container {
+  background-color: black;
   outline-style: solid;
   outline-width: 2px;
   outline-color: blue;
@@ -78,10 +79,19 @@
   outline-style: solid;
   outline-width: 2px;
   outline-color: yellow;
-  width: 50%
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 20px;
+  padding: 15px;
 }
 
-
+.polluter-card-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: cyan;
+}
 
 .leaflet-container {
   height: 400px; /* Or any other desired height */

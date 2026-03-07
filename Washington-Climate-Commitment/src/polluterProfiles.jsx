@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase/firestore";
 import { auth, db } from '../db'
 import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
+import './App.css'
 
 
 // export default function PolluterProfiles() {
@@ -106,7 +107,8 @@ export default function PolluterProfiles() {
 
   
   return(
-    <div>
+    <div className="polluter-card-container">
+      [ Polluter Card Here ] [ Polluter Card Here ] [ Polluter Card Here ]
       {/* <h2> Polluter Profiles: {polluters.map((polluters) => (
           <div key={polluters.id}> this is a div </div>
         ))} </h2> */}
