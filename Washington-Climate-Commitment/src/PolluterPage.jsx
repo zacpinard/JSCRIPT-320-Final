@@ -38,7 +38,7 @@ export default function PolluterPage() {
   if (!polluter) return <div>Loading...</div>
 
   return (
-    <div>
+    <div className={`${polluter.button}-card`}>
       <h1>Polluter Name: {polluter.name}</h1>
       {polluter.latitude && polluter.longitude && (
         <MapContainer center={[polluter.latitude, polluter.longitude]} zoom={7} scrollWheelZoom={false} className="leaflet-container">
@@ -53,10 +53,16 @@ export default function PolluterPage() {
           </Marker>
         </MapContainer>
       )}
-      <h2>Industry: {polluter.industry}</h2>
-      <h2>Type of Market Participant: {polluter.status}</h2>
-      <h2>Location: {polluter.location}</h2>
-      <Link to={`/`}>Home</Link>
+      <div style={{display: 'flex', gap: '10px'}}>
+        <h2 style={{marginBottom: '1px'}}>Type of Market Participant: </h2>
+        <h2 className={`${polluter.button}-color`}> {polluter.status}</h2>
+      </div>
+      <h3 style={{marginBottom: '1px', marginTop: '1px'}}>Industry: {polluter.industry}</h3>
+      <h3 style={{marginTop: '1px'}}>Location: {polluter.location}, WA</h3>
+      <button style={{outline: '2px solid white', width: '200px', display: 'block', margin: '0 auto'}} onClick={() => {
+        navigate('/')
+      }}>Back to Home Page
+      </button>
     </div>
   );
 }

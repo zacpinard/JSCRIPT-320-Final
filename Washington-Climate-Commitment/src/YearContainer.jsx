@@ -4,6 +4,8 @@ import { auth, db } from '../db'
 import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
 import './App.css'
 import SelectYear from "./SelectYear";
+import circleLegend from "./assets/CircleLegend.drawio.png";
+
 
 
 
@@ -28,7 +30,7 @@ export default function YearContainer () {
           id: doc.id
         })
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
+        //console.log(doc.id, " => ", doc.data());
       });
 
       setYears(newYears.sort((a, b) => a.data.year - b.data.year))
@@ -95,8 +97,8 @@ export default function YearContainer () {
         <div className='year-cards'>
           {years.map((year) => {
             return (
-              <button key={year.id} onClick={() => {
-                console.log('clicked year id:', year.id)
+              <button key={year.id} style={{outline: '2px solid white'}} onClick={() => {
+                //console.log('clicked year id:', year.id)
                 setSelectedYearID(year.id)}}>
                 {year.data.year}
               </button>
