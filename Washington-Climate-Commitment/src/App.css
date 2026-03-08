@@ -15,8 +15,6 @@
   flex-wrap: wrap;
   padding: 5px;
   align-items: center;
-  width: 100%;
-
 }
 
 .my-button {
@@ -94,6 +92,16 @@
   justify-content: space-evenly;
   gap: 20px;
   padding: 15px;
+}
+
+.text-explanation-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #a8326b;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 12px;
 }
 
 .polluter-card-container {
