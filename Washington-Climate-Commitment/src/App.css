@@ -140,6 +140,16 @@
 
 }
 
+.eite-marker {
+  background-color: #d28f70;
+  border-radius: 50%;
+}
+
+.covered-marker {
+  background-color: #718769;
+  border-radius: 50%;
+}
+
 .covered {
   outline-style: solid;
   outline-width: 2px;

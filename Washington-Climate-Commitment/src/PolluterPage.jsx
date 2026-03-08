@@ -3,8 +3,10 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { doc, getDoc, deleteDoc, setDoc } from "firebase/firestore";
 import { db } from '../db';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
+import coveredIcon from './assets/covered_icon.png'
+import eiteIcon from './assets/eite_icon.png'
 
 export default function PolluterPage() {
   const [polluter, setPolluter] = useState(null)
@@ -37,6 +39,20 @@ export default function PolluterPage() {
 
   if (!polluter) return <div>Loading...</div>
 
+  const pinIcons = {
+    eite: eiteIcon,
+    covered: coveredIcon,
+  }
+
+  const getMarkerIcon = (buttonType) => {
+    return L.icon({
+      iconUrl: pinIcons[buttonType],
+      iconSize: [24, 36],
+      iconAnchor: [12, 36],
+      popupAnchor: [0, -36]
+    });
+  };
+
   return (
     <div className={`${polluter.button}-card`}>
       <h1>Polluter Name: {polluter.name}</h1>
@@ -46,9 +62,9 @@ export default function PolluterPage() {
             url='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
             attribution="Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
           />
-          <Marker position={[polluter.latitude, polluter.longitude]}>
+          <Marker position={[polluter.latitude, polluter.longitude]} icon={getMarkerIcon(polluter.button)}>
             <Popup>
-              {polluter.name} location
+              {polluter.name}
             </Popup>
           </Marker>
         </MapContainer>
