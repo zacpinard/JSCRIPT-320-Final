@@ -4,12 +4,13 @@ import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase
 import 'leaflet/dist/leaflet.css';
 import './App.css';
 import { TiledMapLayer } from 'esri-leaflet';
-//import PolluterProfiles from './PolluterProfiles';
 import { db } from '../db'
+import coveredIcon from './assets/covered_icon.png'
+import eiteIcon from './assets/eite_icon.png'
 
 export default function CreateMap() {
   const [mapPoints, setMapPoints] = useState([])
-  const centerPosition = [47, -120]; // Default coordinates (latitude, longitude)
+  const centerPosition = [47.5, -121.5]; // Default coordinates (latitude, longitude)
 
   useEffect(() => {
     const fetchedMapPoints = []
@@ -31,28 +32,38 @@ export default function CreateMap() {
 
     getMapPointsData()
   }, [])
+
+  const pinIcons = {
+    eite: eiteIcon,
+    covered: coveredIcon,
+  }
+
+  const getMarkerIcon = (buttonType) => {
+    return L.icon({
+      iconUrl: pinIcons[buttonType],
+      iconSize: [24, 36],
+      iconAnchor: [12, 36],
+      popupAnchor: [0, -36]
+    });
+  };
+
   return (
     <MapContainer center={centerPosition} zoom={6} scrollWheelZoom={false} className="leaflet-container">
-      <TileLayer 
+      <TileLayer
         url='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
         attribution="Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
       />
       <div>
         {mapPoints.map((mapPoint) => {
           return (
-            <Marker key={mapPoint.id} position={[mapPoint.data.latitude, mapPoint.data.longitude]}>
+            <Marker key={mapPoint.id} position={[mapPoint.data.latitude, mapPoint.data.longitude]} icon={getMarkerIcon(mapPoint.data.button)}>
               <Popup>
-                A pretty CSS3 popup
+                {mapPoint.data.name}
               </Popup>
             </Marker>
           )
         })}
       </div>
-      <Marker position={centerPosition}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
     </MapContainer>
   );
 }
