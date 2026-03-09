@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "Washington-Climate-Commitment/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
