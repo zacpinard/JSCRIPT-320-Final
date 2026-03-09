@@ -11,7 +11,7 @@
   outline-style: solid;
   outline-width: 2px;
   outline-color: orange;
-  /* outline-color: transparent; */
+  outline-color: transparent;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
