@@ -67,8 +67,10 @@ export default function SelectYear({ id }) {
           <img src={circleLegend} alt="Circle Legend" style={{width: '130px', height: '27px', position: 'absolute', right: '15px', top: '30px'}}/>
         </div>
         <div className="allowance-breakdown-container">
-          <p style={{color: '#718769', fontSize: '14px'}}>Allowances Sold: {targetYear.allowances_sold.toLocaleString()}</p>
-          <p style={{color: '#d28f70', fontSize: '14px'}}>EITE Allowances Given: {targetYear.eite_allocation.toLocaleString()}</p>
+          <div className='allowance-breakdown'>
+            <p style={{color: '#718769', fontSize: '14px'}}>Allowances Sold: {targetYear.allowances_sold.toLocaleString()}</p>
+            <p style={{color: '#d28f70', fontSize: '14px'}}>EITE Allowances Given: {targetYear.eite_allocation.toLocaleString()}</p>
+          </div>
         </div>
         <p style={{marginBottom: '0', marginTop: '0'}}>Total Emissions for {targetYear.year}: </p>
         <h3 style={{marginBottom: '0', marginTop: '0'}}>{(targetYear.allowances_sold + targetYear.eite_allocation).toLocaleString()} metric tons</h3>

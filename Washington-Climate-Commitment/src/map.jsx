@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase/firestore";
 import 'leaflet/dist/leaflet.css';
@@ -58,7 +59,8 @@ export default function CreateMap() {
           return (
             <Marker key={mapPoint.id} position={[mapPoint.data.latitude, mapPoint.data.longitude]} icon={getMarkerIcon(mapPoint.data.button)}>
               <Popup>
-                {mapPoint.data.name}
+                {mapPoint.data.name} <br />
+                <Link to={`/polluters/${mapPoint.id}`}>More Info</Link>
               </Popup>
             </Marker>
           )

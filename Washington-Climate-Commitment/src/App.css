@@ -47,7 +47,9 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 10px;
-  align-items: center 
+  gap: 5px;
+  align-items: center;
+  position: relative;
 }
 
 .image-only-container {
@@ -55,9 +57,7 @@
   outline-width: 2px;
   outline-color: turquoise;
   display: flex;
-  width: ;
   flex-direction: row;
-  position: relative;
 }
 
 .allowance-breakdown-container {
@@ -65,10 +65,18 @@
   outline-width: 2px;
   outline-color: green;
   width: 93%;
-  font-size: 12px;
+  display: flex;
+  right: 1px;
+  padding: 3px;
+}
+
+.allowance-breakdown {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #a88732;
   display: flex;
   justify-content: space-between;
-  right: 1px;
+  gap: 75px;
 }
 
 .year-cards {
@@ -90,8 +98,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 20px;
-  padding: 15px;
+  gap: 6px;
+  padding: 5px;
 }
 
 .text-explanation-container {
