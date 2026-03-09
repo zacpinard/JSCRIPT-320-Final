@@ -5,6 +5,194 @@
   text-align: center;
 }
 
+.whole-thing {
+  background-color: #121212;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: orange;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 5px;
+  align-items: center;
+}
+
+.my-button {
+  font-size: 10px;
+}
+
+.my-image {
+  width: 450px;
+  height: 100%;
+  border: 2px solid white;
+}
+
+.bubble-chart-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: blue;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 45%;
+  align-items: center 
+
+}
+
+.image-and-breakdown-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  gap: 5px;
+  align-items: center;
+  position: relative;
+}
+
+.image-only-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: turquoise;
+  display: flex;
+  flex-direction: row;
+}
+
+.allowance-breakdown-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: green;
+  width: 93%;
+  display: flex;
+  right: 1px;
+  padding: 3px;
+}
+
+.allowance-breakdown {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #a88732;
+  display: flex;
+  justify-content: space-between;
+  gap: 75px;
+}
+
+.year-cards {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: red;
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center 
+
+}
+
+.polluter-map-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: yellow;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 6px;
+  padding: 5px;
+}
+
+.text-explanation-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #a8326b;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 12px;
+}
+
+.polluter-card-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: cyan;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.polluter-cards {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: magenta;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5px;
+  gap: 10px;
+  row-gap: 10px;
+}
+
+.eite {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #d28f70;
+  color: #d28f70;
+  font-size: 12px;
+}
+
+.eite-card {
+  outline-style: solid;
+  outline-width: 20px;
+  outline-color: #d28f70;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.eite-color {
+  color: #d28f70;
+
+}
+
+.eite-marker {
+  background-color: #d28f70;
+  border-radius: 50%;
+}
+
+.covered-marker {
+  background-color: #718769;
+  border-radius: 50%;
+}
+
+.covered {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #718769;
+  color: #718769;
+  font-size: 12px;
+}
+
+.covered-card {
+  outline-style: solid;
+  outline-width: 20px;
+  outline-color: #718769;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.covered-color {
+  color: #718769;
+}
+
+.leaflet-container {
+  height: 400px; /* Or any other desired height */
+  width: 100%;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

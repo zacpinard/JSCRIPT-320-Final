@@ -1,13 +1,20 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
+import PolluterPage from './PolluterPage'
+import { Home } from './Home'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    "Washington's Climate Commitment Visualized - THIS is the MAIN branch"
+    <div>
+      {/* <Nav /> */}
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/polluters/:id" element={<PolluterPage />}></Route>
+      </Routes>
+    </div>
   )
 }
 
