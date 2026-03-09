@@ -4,6 +4,6 @@ const getTotalEmissions = (allowances_sold, eite_allocation) => {
 
 describe('getTotalEmissions', () => {
   test('adds two numbers correctly', () => {
-    expect(getTotalEmissions(14, 15)).toBe(29);
+    expect(getTotalEmissions(14000000, 15000000)).toBe(29000000);
   });
 });
