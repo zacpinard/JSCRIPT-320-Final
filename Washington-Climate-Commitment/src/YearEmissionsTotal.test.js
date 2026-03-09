@@ -1,9 +1,7 @@
-// The logic you want to test
 const getTotalEmissions = (allowances_sold, eite_allocation) => {
   return allowances_sold + eite_allocation;
 };
 
-// Tests
 describe('getTotalEmissions', () => {
   test('adds two numbers correctly', () => {
     expect(getTotalEmissions(1000000, 500000)).toBe(1500000);
