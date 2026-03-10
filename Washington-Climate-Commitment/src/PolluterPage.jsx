@@ -17,13 +17,11 @@ export default function PolluterPage() {
     const getData = async () => {
 
       const docRef = doc(db, "polluters", id);
-      console.log('id: ', id)
+      //console.log('id: ', id)
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        console.log("docSnap.data().name: ", docSnap.data().name)
-        //const polluterName = docSnap.data().name
+        //console.log("Document data:", docSnap.data());
         setPolluter(docSnap.data())
 
       } else {
