@@ -1,70 +1,15 @@
 import { useEffect, useState } from "react"
 import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase/firestore";
-import { auth, db } from '../db'
-import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
+import { db } from '../db'
+import { Link } from 'react-router-dom'
 import './App.css'
 
-
-// export default function PolluterProfiles() {
-//   const [polluters, setPolluters] = useState()
-//   //const [isLoading, setIsLoading] = useState(true)
-  
-//   useEffect(() => {
-//     const getData = async () => {
-//       const querySnapshot = await getDocs(collection(db, "polluters"));
-//       querySnapshot.forEach((doc) => {
-//         console.log(doc.id, " => ", doc.data().name);
-//       })
-//     }
-
-//     getData()
-
-
-//     // const pollutersQuery = query(collection(db, 'polluters'))
-
-//     // const newPolluters = []
-//     // const unsub = onSnapshot(pollutersQuery, (snapshot) => {
-//     //     //console.log(snapshot.docs)
-//     //     snapshot.docs.forEach(doc => {
-//     //         console.log("doc.data(): ", doc.data())
-//     //         newPolluters.push({
-//     //             data: doc.data(),
-//     //             id: doc.id
-//     //         })
-//     //     })
-//     //     setPolluters(newPolluters)
-//     //     setIsLoading(false)
-//     // });
-   
-//   }, [])
-
-//   // if (isLoading) {
-//   //       return <h1>Loading....</h1>
-//   // }
-  
-//   console.log('polluters:', polluters)
-
-
-  
-//   return(
-//     <div>
-//       <h2> Polluter Profile for: x</h2>
-//       {/* {polluters.map((polluter) => {
-//         return (<div key={polluter.id}>
-//             <p>{polluter.data}</p>
-//         </div>)
-//       })} */}
-//     </div>
-//   )
-// }
-//______________________________________________________________________________________________________________________________________________________________
 
 export default function PolluterProfiles() {
   const [polluters, setPolluters] = useState([])
   //const [isLoading, setIsLoading] = useState(true)
   //console.log('polluters:', polluters)
 
-  
   useEffect(() => {
     const getData = async () => {
       const newPolluters = []
@@ -74,41 +19,27 @@ export default function PolluterProfiles() {
         newPolluters.push({
           data: doc.data(),
           id: doc.id,
-      })
+        })
       })
       setPolluters(newPolluters)
     }
 
     getData()
-   
+
   }, [])
-  
-  // console.log('polluters: ', polluters)
 
-
-  
-  return(
+  return (
     <div className="polluter-card-container">
-      <p style={{ color: 'white', marginTop: '1px', marginBottom: '5px'}}>Washington's Biggest Polluters:</p>
+      <p style={{ color: 'white', marginTop: '1px', marginBottom: '5px' }}>Washington's Biggest Polluters:</p>
       <div className='polluter-cards'>
         {polluters.map((polluter) => {
           return (
             <div key={polluter.id} className={polluter.data.button}>
-              <Link to={`/polluters/${polluter.id}`} style={{ color: 'white', padding: '10px', borderRadius: '20px'}}>{polluter.data.name}</Link>
+              <Link to={`/polluters/${polluter.id}`} style={{ color: 'white', padding: '10px', borderRadius: '20px' }}>{polluter.data.name}</Link>
             </div>
           )
-      })}
+        })}
       </div>
-      
-      {/* <h2> Polluter Profiles: {polluters.map((polluters) => (
-          <div key={polluters.id}> this is a div </div>
-        ))} </h2> */}
-      {/* <h2> Polluter Profiles: {polluters.id} </h2> */}
-      {/* {polluters.map((polluter) => {
-        return (<div key={polluter.id}>
-            <p>{polluter.data}</p>
-        </div>)
-      })} */}
     </div>
   )
 }

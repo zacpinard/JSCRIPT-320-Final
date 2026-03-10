@@ -1,7 +1,6 @@
 import './App.css'
 import CreateMap from './map'
 import PolluterProfiles from './Polluter_Profiles'
-import { Link } from 'react-router-dom'
 import YearContainer from './YearContainer'
 
 export function Home() {

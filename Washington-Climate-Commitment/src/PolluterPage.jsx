@@ -14,27 +14,24 @@ export default function PolluterPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
-      const getData = async () => {
+    const getData = async () => {
 
-          const docRef = doc(db, "polluters", id);
-          console.log('id: ', id)
-          const docSnap = await getDoc(docRef);
+      const docRef = doc(db, "polluters", id);
+      console.log('id: ', id)
+      const docSnap = await getDoc(docRef);
 
-          if (docSnap.exists()) {
-              console.log("Document data:", docSnap.data());
-              console.log("docSnap.data().name: ", docSnap.data().name)
-              //const polluterName = docSnap.data().name
-              setPolluter(docSnap.data())
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        console.log("docSnap.data().name: ", docSnap.data().name)
+        //const polluterName = docSnap.data().name
+        setPolluter(docSnap.data())
 
-          } else {
-              // docSnap.data() will be undefined in this case
-              console.log("No such document!");
-          }
-
+      } else {
+        // docSnap.data() will be undefined in this case
+        console.log("No such document!");
       }
-
-      getData()
-
+    }
+    getData()
   }, [id])
 
   if (!polluter) return <div>Loading...</div>
@@ -69,13 +66,13 @@ export default function PolluterPage() {
           </Marker>
         </MapContainer>
       )}
-      <div style={{display: 'flex', gap: '10px'}}>
-        <h2 style={{marginBottom: '1px'}}>Type of Market Participant: </h2>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <h2 style={{ marginBottom: '1px' }}>Type of Market Participant: </h2>
         <h2 className={`${polluter.button}-color`}> {polluter.status}</h2>
       </div>
-      <h3 style={{marginBottom: '1px', marginTop: '1px'}}>Industry: {polluter.industry}</h3>
-      <h3 style={{marginTop: '1px'}}>Location: {polluter.location}, WA</h3>
-      <button style={{outline: '2px solid white', width: '200px', display: 'block', margin: '0 auto'}} onClick={() => {
+      <h3 style={{ marginBottom: '1px', marginTop: '1px' }}>Industry: {polluter.industry}</h3>
+      <h3 style={{ marginTop: '1px' }}>Location: {polluter.location}, WA</h3>
+      <button style={{ outline: '2px solid white', width: '200px', display: 'block', margin: '0 auto' }} onClick={() => {
         navigate('/')
       }}>Back to Home Page
       </button>

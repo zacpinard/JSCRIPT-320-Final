@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import './App.css'
-import { Route, Routes, useParams, Link, useLocation } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import PolluterPage from './PolluterPage'
 import { Home } from './Home'
 

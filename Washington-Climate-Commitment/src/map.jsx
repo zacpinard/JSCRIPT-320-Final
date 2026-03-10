@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { collection, getDocs, onSnapshot, query, orderBy, limit } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import 'leaflet/dist/leaflet.css';
 import './App.css';
-import { TiledMapLayer } from 'esri-leaflet';
 import { db } from '../db'
 import coveredIcon from './assets/covered_icon.png'
 import eiteIcon from './assets/eite_icon.png'
@@ -23,8 +22,7 @@ export default function CreateMap() {
           data: doc.data(),
           id: doc.id
         })
-        // doc.data() is never undefined for query doc snapshots
-        console.log("mapPoint: ", doc.id, " => ", doc.data());
+        //console.log("mapPoint: ", doc.id, " => ", doc.data());
       });
 
       setMapPoints(fetchedMapPoints)
