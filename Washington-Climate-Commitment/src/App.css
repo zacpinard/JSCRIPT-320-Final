@@ -25,7 +25,6 @@
 
 .my-image {
   width: 450px;
-  height: 100%;
 }
 
 .bubble-chart-container {
@@ -37,7 +36,7 @@
   flex-direction: column;
   gap: 15px;
   width: 45%;
-  align-items: center 
+  align-items: center;
 
 }
 
@@ -64,6 +63,16 @@
   display: flex;
   right: 1px;
   padding: 3px;
+}
+
+.image-only-container {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: aquamarine;
+  outline-color: transparent;
+  display: flex;
+  align-items: flex-end;
+  height: 550px;
 }
 
 .allowance-breakdown {
