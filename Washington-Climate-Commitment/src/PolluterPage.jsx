@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import { doc, getDoc, deleteDoc, setDoc } from "firebase/firestore";
+import { useParams, useNavigate } from 'react-router-dom';
+import { doc, getDoc } from "firebase/firestore";
 import { db } from '../db';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import * as L from 'leaflet';
